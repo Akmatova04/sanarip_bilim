@@ -1,0 +1,82 @@
+<!-- templates/core/index.html (Font Awesome иконкалары менен) -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Башкы бет - Sanarip Bilim{% endblock %}
+
+{% block content %}
+
+{# --- Hero Section --- #}
+<section class="hero-section">
+    <div class="container">
+        <h1>Санарип Дүйнөгө Кош Келиңиз!</h1>
+        <p class="lead">
+            Бул жерде сиз заманбап санарип көндүмдөрдү үйрөнө аласыз. Биздин максат - ар бир кыргызстандыктын санарип сабаттуулугун жогорулатуу!
+        </p>
+        <a href="{% url 'courses' %}" class="btn">Курстарды көрүү</a>
+        <a href="{% url 'register' %}" class="btn btn-secondary" style="margin-left: 10px;">Азыр Катталуу</a>
+    </div>
+</section>
+{# --- Hero Section аягы --- #}
+
+{# --- Социалдык тармактар (Font Awesome менен) --- #}
+<section class="social-media-section">
+    <div class="container">
+        <h3>Биз менен социалдык тармактарда байланышыңыз:</h3>
+        <div class="social-links">
+            {# !!! МААНИЛҮҮ: href="#" жерлерине ЧЫНЫГЫ ШИЛТЕМЕЛЕРИҢИЗДИ КОЮҢУЗ !!! #}
+            <a href="https://www.instagram.com/n.akmatova3" target="_blank" title="Instagram" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" target="_blank" title="Facebook" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://t.me/ Акматова Назира"  target="_blank" title="telegram" class="social-icon">
+                <i class="fab fa-telegram"></i>
+            </a>
+            </a>
+            <a href="https://wa.me/996990686854" target="_blank" title="WhatsApp" class="social-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+             {# <a href="#" target="_blank" title="Telegram" class="social-icon"><i class="fab fa-telegram-plane"></i></a> #}
+        </div>
+    </div>
+</section>
+{# --- Социалдык тармактар аягы --- #}
+
+{# --- "Эмне үчүн биз?" Секциясы --- #}
+<section class="features-section">
+    <div class="container">
+        <h2>Эмне үчүн биз?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-item-content">
+                    <h3>Кыргыз тилинде</h3>
+                    <p>Бардык материалдар жана сабактар түшүнүктүү кыргыз тилинде берилет.</p>
+                 </div>
+            </div>
+            <div class="feature-item">
+                 <div class="feature-item-content">
+                    <h3>Практикалык Тапшырмалар</h3>
+                    <p>Теорияны бышыктоо үчүн реалдуу кейстерге негизделген тапшырмалар.</p>
+                 </div>
+            </div>
+            <div class="feature-item">
+                 <div class="feature-item-content">
+                    <h3>Жеткиликтүү Билим</h3>
+                    <p>Акысыз жана арзан курстар аркылуу сапаттуу билим алуу мүмкүнчүлүгү.</p>
+                 </div>
+            </div>
+             <div class="feature-item">
+                  <div class="feature-item-content">
+                    <h3>Колдоо Көрсөтүү</h3>
+                    <p>Суроолоруңузга жооп берип, окуу процессинде жардам берүүгө даярбыз.</p>
+                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+{# --- "Эмне үчүн биз?" Секциясынын аягы --- #}
+
+{% endblock %}
+

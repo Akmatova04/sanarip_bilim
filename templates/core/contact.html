@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page_title|default:"Байланыш" }} - Sanarip Bilim{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="center-title-wrapper">
+        <h1 class="page-title">Биз менен байланышыңыз</h1>
+    </div>
+
+    <!-- Байланыш маалымат -->
+    <div class="contact-info" style="margin-bottom: 40px; padding: 30px; background-color: #1A1E23; border-radius: 10px; border: 1px solid #343A40;">
+        <h3 style="color: #20C997; margin-bottom: 20px;">Биздин дарек жана байланыш:</h3>
+
+        <div style="margin-bottom: 15px;">
+            <strong style="color: #E0E0E0;">Дарегибиз:</strong>
+            <p style="margin-left: 20px; color: #ADB5BD; margin-bottom: 5px; line-height: 1.6;">
+                Баткен шаары,<br>
+                Салихов көчөсү, 123-үй,<br>
+                "Sanarip Bilim" окуу борбору,<br>
+                1-кабат, 3-кеңсе<br>
+                <br>
+                Кыргыз Республикасы
+            </p>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <strong style="color: #E0E0E0;">Электрондук почта:</strong>
+            <p style="margin-left: 20px; margin-bottom: 5px;">
+                <a href="mailto:info@sanaripbilim.kg">info@sanaripbilim.kg</a>
+            </p>
+        </div>
+
+        <div>
+            <strong style="color: #E0E0E0;">Телефон:</strong>
+            <p style="margin-left: 20px; margin-bottom: 5px;">
+                <a href="tel:+996555123456">+996 (990) 686-854</a>
+            </p>
+        </div>
+    </div>
+
+    
+    <div class="form-container">
+        <div class="form-container">
+            {% if messages %}
+                <ul class="messages" style="list-style: none; padding: 0; margin-bottom: 25px;">
+                    {% for message in messages %}
+                        {% if message.tags == 'success' %}
+                            <li class="message success" style="padding: 15px; border-radius: 8px; margin-bottom: 10px; background-color: #198754; color: white;">
+                                {{ message }}
+                            </li>
+                        {% elif message.tags == 'error' %}
+                            <li class="message error" style="padding: 15px; border-radius: 8px; margin-bottom: 10px; background-color: #dc3545; color: white;">
+                                {{ message }}
+                            </li>
+                        {% else %}
+                            <li class="message" style="padding: 15px; border-radius: 8px; margin-bottom: 10px; background-color: #212529; color: #e0e0e0;">
+                                {{ message }}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        
+
+        <p style="color: #ADB5BD; text-align: center; margin-bottom: 30px;">
+            Суроолоруңуз же сунуштарыңыз болсо, тартынбай жазыңыз.
+        </p>
+
+        <form method="POST" action="{% url 'contact' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Аты-жөнүңүз:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Электрондук почтаңыз:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Билдирүүңүз:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Жөнөтүү</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

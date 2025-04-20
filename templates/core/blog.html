@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page_title|default:"Блог" }} - Санарип Билим{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="center-title-wrapper">
+        <h1 class="page-title">{{ page_title|default:"Биздин Блог" }}</h1>
+    </div>
+
+    {% if posts %}
+        <div class="blog-posts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+
+            {% for post in posts %}
+            <div class="post-card" style="background-color: #1A1E23; border: 1px solid #343A40; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
+
+                {% if post.image %}
+                    <a href="{% url 'post_detail' post.pk %}" aria-label="Постту окуу: {{ post.title }}">
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                    </a>
+                {% else %}
+                    <div style="width: 100%; height: 180px; background-color: #212529;"></div>
+                {% endif %}
+
+                <div class="post-card-content" style="padding: 20px 25px 25px 25px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <h3 style="margin-bottom: 15px;">
+                        <a href="{% url 'post_detail' post.pk %}" style="color: #FFFFFF;">{{ post.title }}</a>
+                    </h3>
+
+                    <p style="color: #ADB5BD; font-size: 0.85rem; margin-bottom: 15px;">
+                        {% if post.author %}Автору: {{ post.author.get_full_name|default:post.author.username }}{% endif %}
+                        <span style="margin-left: 10px; margin-right: 10px;">|</span>
+                        {{ post.published_date|date:"d-M, Y" }}
+                    </p>
+
+                    <p style="color: #E0E0E0; font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">
+                        {{ post.content|truncatewords_html:30|safe }}
+                    </p>
+
+                    <a href="{% url 'post_detail' post.pk %}" class="btn btn-secondary" style="margin-top: auto; width: auto; align-self: flex-start;">Толугураак окуу</a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    {% else %}
+        <div style="background-color: #1A1E23; padding: 30px 40px; border-radius: 10px; border: 1px solid #343A40;">
+             <p style="text-align: center; color: #ADB5BD;">Азырынча эч кандай блог посту жарыялана элек.</p>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}

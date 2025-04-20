@@ -1,0 +1,40 @@
+<!-- templates/core/resources.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page_title|default:"Ресурстар" }} - Sanarip Bilim{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="center-title-wrapper">
+        <h1 class="page-title">{{ page_title|default:"Пайдалуу Ресурстар" }}</h1>
+    </div>
+
+    <div class="resource-list" style="background-color: #1A1E23; padding: 30px; border-radius: 10px; border: 1px solid #343A40;">
+        {% if resources %} {# Эгер ресурстардын тизмеси бош эмес болсо #}
+            <ul style="list-style: none; padding: 0;">
+                {% for resource in resources %} {# Ар бир ресурс үчүн цикл #}
+                    <li style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #343A40;">
+                        {# Ресурстун аталышы (шилтеме менен) #}
+                        <h3 style="margin-bottom: 8px;"> 
+                            <a href="{{ resource.link }}" target="_blank" style="color: #ffffff;">{{ resource.title }}</a> 
+                            {# target="_blank" - жаңы вкладкада ачуу #}
+                        </h3>
+                        {# Ресурстун шилтемеси (кошумча) #}
+                        <p style="font-size: 0.9rem; margin-bottom: 10px;">
+                            <a href="{{ resource.link }}" target="_blank" style="color: #20C997; word-break: break-all;">{{ resource.link }}</a>
+                        </p>
+                        {# Ресурстун сүрөттөмөсү (эгер бар болсо) #}
+                        {% if resource.description %}
+                            <p style="color: #adb5bd; font-size: 0.95rem; margin-bottom: 0;">{{ resource.description }}</p>
+                        {% endif %}
+                    </li>
+                {% endfor %} {# Циклдин аягы #}
+            </ul>
+        {% else %} {# Эгер ресурстар жок болсо #}
+            <p style="text-align: center; color: #adb5bd;">Азырынча эч кандай ресурс кошула элек.</p>
+        {% endif %} {# if ресурстар текшерүүсүнүн аягы #}
+    </div> {# resource-list аягы #}
+
+</div> {# container аягы #}
+{% endblock %} {# content блогунун аягы #}

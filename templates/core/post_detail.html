@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }} - Блог - Санарип Билим{% endblock %}
+
+{% block content %}
+<div class="container">
+    <article class="post-detail" style="background-color: #1A1E23; padding: 30px 40px; border-radius: 10px; border: 1px solid #343A40; margin-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto;"> {# Постту ортого жайгаштыруу үчүн max-width жана margin кошулду #}
+
+        {# Посттун аталышы #}
+        <h1 style="color: #FFFFFF; text-align: center; margin-bottom: 20px; font-size: 2.5rem;">{{ post.title }}</h1>
+
+        {# Автор жана дата #}
+        <p style="text-align: center; color: #ADB5BD; font-size: 0.9rem; margin-bottom: 30px;">
+             {% if post.author %}Автору: {{ post.author.get_full_name|default:post.author.username }}{% endif %}
+             <span style="margin-left: 10px; margin-right: 10px;">|</span>
+             Жарыяланган күнү: {{ post.published_date|date:"d-F, Y, H:i" }}
+        </p>
+
+        {# Посттун сүрөтү (эгер бар болсо, аталыштан кийин) #}
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 30px; display: block;">
+        {% endif %}
+
+        {# Посттун толук мазмуну #}
+        <div class="post-content" style="color: #E0E0E0; line-height: 1.8; font-size: 1.05rem;"> {# Тексттин өлчөмү бир аз чоңойтулду #}
+            {{ post.content|safe }} {# Эгер админкадан HTML колдонсоңуз, safe чыпкасы керек #}
+        </div>
+
+        {# Артка кайтуу шилтемеси #}
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="{% url 'blog' %}" class="btn btn-secondary">← Блогго кайтуу</a>
+        </div>
+
+    </article>
+</div>
+{% endblock %}

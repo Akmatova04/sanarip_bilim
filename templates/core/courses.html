@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page_title|default:"Курстар" }} - Санарип Билим{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="center-title-wrapper" style="margin-bottom: 40px;"> {# Баш ат үчүн контейнер #}
+        <h1 class="page-title" style="color: #FFFFFF; border-bottom-color: #20C997;">{{ page_title|default:"Биздин Курстар" }}</h1> {# Dark mode үчүн түстөрдү тууралоо #}
+    </div>
+
+    {% if courses %}
+        <div class="courses-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;"> {# Грид макети #}
+            {% for course in courses %}
+            <div class="course-card"> {# Биз CSS'те аныктаган стиль #}
+                
+                {# --- СҮРӨТТҮ КӨРСӨТҮҮ --- #}
+                {% if course.image %} {# Эгер курстун сүрөтү бар болсо #}
+                    <img src="{{ course.image.url }}" alt="{{ course.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px 8px 0 0; margin-bottom: 20px;">
+                {% else %} {# Эгер сүрөт жок болсо, орун ээлеп туруучу сүрөт же боштук #}
+                     <div style="width: 100%; height: 200px; background-color: #212529; border-radius: 8px 8px 0 0; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; color: #6c757d;">Сүрөт жок</div>
+                {% endif %}
+                {# ------------------------ #}
+
+                <div style="padding: 0 15px 15px 15px;"> {# Текст үчүн ички боштук #}
+                    <h3 style="color: #FFFFFF; margin-bottom: 10px;">{{ course.title }}</h3> {# Курстун аталышы #}
+                    
+                    {% if course.description %} {# Эгер сүрөттөмө бар болсо #}
+                        <p style="color: #ADB5BD; font-size: 0.95rem; margin-bottom: 20px;">
+                            {{ course.description|truncatewords:20 }} {# Сүрөттөмөнү 20 сөз менен чектөө #}
+                        </p>
+                    {% endif %}
+
+                    {# Бул жерге чыныгы курска өтүүчү шилтемени коюу керек болот #}
+                    <a href="{% url 'course_detail' course.pk %}" class="btn btn-secondary" style="width: 100%;">Кененирээк</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p style="text-align: center; color: #ADB5BD; margin-top: 50px;">Азырынча жеткиликтүү курстар жок.</p> {# Эгер курстар жок болсо #}
+    {% endif %}
+
+</div>
+{% endblock %}

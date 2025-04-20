@@ -1,0 +1,182 @@
+/* --- style.css (ЖАКШЫРТЫЛГАН DARK MODE) --- */
+
+/* --- Жалпы Стилдер --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Барак ичиндеги секирүүлөрдү жылмакай кылат */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+    color: #cccccc; /* Негизги текстти бир аз ачыгыраак кылуу (#E0E0E0 ордуна) */
+    background-color: #12181f; /* Бир аз көгүш кара фон (#121212 ордуна) */
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased; /* Текстти жылмакай көрсөтүү (кээ бир браузерлерде) */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto; /* 0 auto ордуна auto */
+    padding: 0 20px;
+}
+
+/* Баш аттар */
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff; /* Негизги баш аттар ак */
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.3; /* Сап арасын бир аз кысуу */
+}
+
+h1 { font-size: 2.8rem; } /* Өлчөмдөрдү тууралоо */
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; } /* h3'тү кичирээк кылуу */
+
+p {
+    margin-bottom: 1.2rem;
+    color: #adb5bd; /* Боз текст */
+}
+
+a {
+    color: #20C997; /* Акцент түс - Бирюза */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Өтүүнү бир аз жайыраак кылуу */
+}
+
+a:hover {
+    color: #1ce0a5; /* Hover түсүн ачыгыраак кылуу */
+}
+
+ul { list-style: none; padding-left: 0; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* --- Header --- */
+header {
+    background: rgba(26, 30, 35, 0.85); /* Жарым тунук фон (#1A1E23 ордуна) */
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(52, 58, 64, 0.5); /* Жарым тунук чек */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Фонду бүдөмүктөтүү (эффект үчүн) */
+    -webkit-backdrop-filter: blur(10px);
+}
+
+header .container { display: flex; justify-content: space-between; align-items: center; }
+
+/* Сайттын аталышы (Текст) */
+#site-logo h1 a.site-title-link {
+    text-decoration: none;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1;
+    display: inline-block;
+}
+#site-logo .logo-part1 { color: #ffffff; transition: color 0.3s ease; }
+#site-logo .logo-part2 { color: #20C997; transition: color 0.3s ease; }
+#site-logo h1 a.site-title-link:hover .logo-part1 { color: #e0e0e0; }
+#site-logo h1 a.site-title-link:hover .logo-part2 { color: #1ce0a5; }
+
+/* Меню */
+header nav ul { display: flex; align-items: stretch; flex-wrap: wrap; gap: 8px; /* Аралыкты азайтуу */ }
+header nav ul li { margin-left: 0; }
+header nav ul li a {
+    display: flex; align-items: center; justify-content: center; height: 100%;
+    color: #cccccc; /* Текстти ачыгыраак кылуу */
+    background-color: rgba(33, 37, 41, 0.6); /* Жарым тунук фон (#212529 ордуна) */
+    padding: 9px 16px; /* Паддингди тууралоо */
+    text-decoration: none; font-weight: 500;
+    border: 1px solid rgba(52, 58, 64, 0.5); /* Жарым тунук чек */
+    border-radius: 6px; /* Бурчту азайтуу */
+    transition: all 0.25s ease; /* Бардык өтүүлөр үчүн */
+    text-align: center; white-space: nowrap;
+}
+header nav ul li a:hover, header nav ul li a.current {
+    background-color: rgba(32, 201, 151, 0.15); /* Жарым тунук жашыл фон (#2c3136 ордуна) */
+    color: #20C997; /* Текст жашыл */
+    border-color: rgba(32, 201, 151, 0.6); /* Жашыл чек */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(32, 201, 151, 0.1); /* Жеңил жашыл көлөкө */
+}
+
+/* --- Негизги Контент --- */
+main { padding: 80px 0; /* Көбүрөөк боштук */ min-height: 75vh; }
+
+/* Барактардын баш аттары */
+.page-title { text-align: center; margin-bottom: 0; font-size: 2.5rem; color: #ffffff; /* Ак баш ат */ border-bottom: 3px solid #20C997; /* Жашыл сызык */ padding-bottom: 15px; display: inline-block; }
+.center-title-wrapper { text-align: center; margin-bottom: 60px; /* Көбүрөөк боштук */ }
+
+/* Hero Section (Башкы бет) */
+.hero-section { text-align: center; padding: 80px 0; /* Көбүрөөк боштук */ margin-top: -80px; /* main'дин падингин компенсациялоо */ background: linear-gradient(to bottom, rgba(26, 30, 35, 0.7), #12181f 80%), radial-gradient(ellipse at bottom, #1A1E23 0%, #12181f 100%); /* Кызыктуу фон */ }
+.hero-section h1 { font-size: 3.5rem; /* Чоңураак */ color: #ffffff; margin-bottom: 1.5rem; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.hero-section p.lead { font-size: 1.25rem; /* Чоңураак */ color: #adb5bd; max-width: 750px; margin: 0 auto 3rem auto; /* Көбүрөөк боштук */ }
+.hero-section .btn { margin: 0 12px; padding: 15px 35px; font-size: 1.1rem; }
+
+/* Social Links */
+.social-media-section { padding: 50px 0; text-align: center; border-top: 1px solid rgba(52, 58, 64, 0.5); border-bottom: 1px solid rgba(52, 58, 64, 0.5); background-color: rgba(26, 30, 35, 0.3); margin: 60px 0;}
+.social-media-section h3 { color: #adb5bd; margin-bottom: 30px; font-weight: 500; font-size: 1.3rem; }
+.social-links a { text-align: center; }
+.social-icon { display: inline-block; margin: 0 15px; color: #adb5bd; font-size: 2rem; /* Бир аз кичирээк */ opacity: 0.6; transition: all 0.3s ease; }
+.social-icon:hover { color: #ffffff; /* Ак */ opacity: 1; transform: scale(1.2) translateY(-3px); }
+
+/* Features Section */
+.features-section { padding: 80px 0; }
+.features-section h2 { text-align: center; margin-bottom: 50px; color: #ffffff; font-size: 2.2rem; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 30px; }
+.feature-item { background: linear-gradient(145deg, #1f242a, #171b20); /* Картага градиент */ border: 1px solid #343A40; border-radius: 12px; /* Көбүрөөк жумуру */ margin-bottom: 0; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Бир аз көлөкө */ transition: all 0.3s ease; display: flex; flex-direction: column; height: 100%; overflow: hidden; position: relative; }
+.feature-item:before { /* Картанын үстүнө эффект */ content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to right, transparent, #20C997, transparent); opacity: 0; transition: opacity 0.3s ease; }
+.feature-item:hover { transform: translateY(-6px); border-color: rgba(32, 201, 151, 0.5); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2); }
+.feature-item:hover:before { opacity: 0.6; }
+.feature-item-content { padding: 30px; /* Көбүрөөк боштук */ display: flex; flex-direction: column; flex-grow: 1; text-align: center; /* Текстти ортого */ }
+.feature-item h3 { color: #ffffff; margin-bottom: 12px; font-size: 1.4rem; }
+.feature-item p { color: #adb5bd; font-size: 0.95rem; margin-bottom: 0; /* Акыркы элементтен кийин боштук кереги жок */ flex-grow: 1; }
+
+/* Buttons */
+.btn, .submit-btn { display: inline-block; background: linear-gradient(to right, #20C997, #1ce0a5); /* Жашыл градиент */ color: #12181f !important; /* Текст кара */ padding: 12px 30px; border: none; border-radius: 50px; /* Толук жумуру */ font-size: 1rem; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none !important; transition: all 0.3s ease; box-shadow: 0 5px 18px rgba(32, 201, 151, 0.25); letter-spacing: 0.5px; }
+.btn:hover, .submit-btn:hover { background: linear-gradient(to right, #1ce0a5, #20C997); color: #12181f; transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 25px rgba(32, 201, 151, 0.35); }
+.btn:active, .submit-btn:active { transform: translateY(0) scale(1); box-shadow: 0 5px 18px rgba(32, 201, 151, 0.25); }
+.btn-secondary { background: transparent; color: #adb5bd !important; border: 2px solid #495057; box-shadow: none; padding: 10px 28px; }
+.btn-secondary:hover { background: #495057; color: #ffffff !important; border-color: #495057; transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 25px rgba(73, 80, 87, 0.15); }
+.btn-secondary:active { transform: translateY(0) scale(1); box-shadow: none; }
+
+/* Footer */
+footer { background: #1A1E23; color: #8892b0; /* Бир аз башкача боз */ text-align: center; padding: 3rem 0; margin-top: 80px; border-top: 1px solid #343A40; }
+footer p { margin: 0; font-size: 0.9rem; }
+footer a { color: #a8b2d1; }
+footer a:hover { color: #20C997; }
+
+/* --- Кабарлар (messages) үчүн стилдер --- */
+ul.messages { list-style: none; padding: 0; margin: 0 auto 25px auto; max-width: 550px; /* Форма контейнеринин туурасына барабар */ }
+ul.messages li { padding: 15px 20px; border-radius: 8px; margin-bottom: 10px; color: white; font-weight: 500; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+ul.messages li.success { background: linear-gradient(to right, #198754, #1f9d63); } /* Жашыл градиент */
+ul.messages li.error   { background: linear-gradient(to right, #dc3545, #e84a5f); } /* Кызыл градиент */
+ul.messages li.warning { background: linear-gradient(to right, #ffc107, #ffca2c); color: #333; } /* Сары градиент */
+ul.messages li.info    { background: linear-gradient(to right, #0dcaf0, #17d2f3); color: #12181f; } /* Ач көк градиент */
+ul.messages li.debug   { background: linear-gradient(to right, #6c757d, #868e96); } /* Боз градиент */
+
+/* --- Формалардын стилдери --- */
+.form-container { background-color: #1A1E23; padding: 50px; border-radius: 15px; border: 1px solid #343A40; max-width: 550px; margin: 0 auto; }
+.form-container h2 { text-align: center; margin-bottom: 35px; color: #ffffff; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: #adb5bd; font-size: 0.9rem; }
+.form-group input[type="text"], .form-group input[type="email"], .form-group input[type="password"], .form-group textarea { width: 100%; padding: 15px; border: 1px solid #343A40; border-radius: 8px; font-size: 1rem; font-family: inherit; background-color: #212529; color: #E0E0E0; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: #6C757D; }
+.form-group input:focus, .form-group textarea:focus { border-color: #20C997; outline: 0; background-color: #1A1E23; box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.15); }
+.form-group textarea { resize: vertical; min-height: 130px; }
+.form-link { text-align: center; margin-top: 30px; font-size: 0.9rem; color: #8892b0; }
+.form-link a { color: #20C997; font-weight: 600; }
+.form-link a:hover { color: #1ce0a5; }
+
+/* Курстар/Блог карталарына кошумча */
+.course-card, .post-card { background: linear-gradient(145deg, #1f242a, #171b20); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); border-radius: 12px; }
+.course-card h3, .post-card h3 { color: #ffffff; } /* Карточка аталыштары ак */
+.course-card h3 a, .post-card h3 a { color: #ffffff; }
+.course-card h3 a:hover, .post-card h3 a:hover { color: #20C997; }
+.course-card p, .post-card p { color: #adb5bd; }
+.post-card p.post-meta { color: #8892b0; font-size: 0.85rem; margin-bottom: 15px; }
